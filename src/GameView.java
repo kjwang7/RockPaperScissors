@@ -2,8 +2,9 @@
  * View of the Game.
  */
 
-import java.awt.BorderLayout;
-import java.awt.Component;
+//import java.awt.BorderLayout;
+//import java.awt.Component;
+//import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -23,7 +24,7 @@ public class GameView extends JFrame {
 	
 	public GameView() {
 		JPanel gamePanel = new JPanel();
-		gamePanel.setLayout(new GridLayout(4, 1));
+		gamePanel.setLayout(new GridLayout(3, 0));
 		
 		JPanel selectLabelPanel = new JPanel();
 		
@@ -37,9 +38,10 @@ public class GameView extends JFrame {
 		this.setSize(800, 400);
 		
 				
-		selectLabel = new JLabel("Make a selection, then Play!", JLabel.CENTER);
+		selectLabel = new JLabel("Make a selection, then Play!");
+		//selectLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		selectLabelPanel.add(selectLabel);
+		selectLabelPanel.add(selectLabel, JLabel.CENTER);
 
 		groupUserSelection = new ButtonGroup();
 		
@@ -53,6 +55,13 @@ public class GameView extends JFrame {
 		jRadioButtonScissors.setText("Scissors");
 		jRadioButtonScissors.setActionCommand("Scissors");
 		
+		jRadioButtonRock.setHorizontalAlignment(SwingConstants.CENTER);
+		jRadioButtonPaper.setHorizontalAlignment(SwingConstants.CENTER);
+		jRadioButtonScissors.setHorizontalAlignment(SwingConstants.CENTER);
+		//jRadioButtonRock.setVerticalAlignment(SwingConstants.CENTER);
+		//jRadioButtonPaper.setVerticalAlignment(SwingConstants.CENTER);
+		//jRadioButtonScissors.setVerticalAlignment(SwingConstants.CENTER);
+		
 		groupUserSelection.add(jRadioButtonRock);
 		groupUserSelection.add(jRadioButtonPaper);
 		groupUserSelection.add(jRadioButtonScissors);
@@ -60,9 +69,12 @@ public class GameView extends JFrame {
 		playButton = new JButton("Play!");
 		
 		//gamePanel.add(selectLabel);
-		radioButtonPanel.add(jRadioButtonRock, BorderLayout.CENTER);
-		radioButtonPanel.add(jRadioButtonPaper, BorderLayout.CENTER);
-		radioButtonPanel.add(jRadioButtonScissors, BorderLayout.CENTER);
+		//radioButtonPanel.add(jRadioButtonRock, BorderLayout.CENTER);
+		//radioButtonPanel.add(jRadioButtonPaper, BorderLayout.CENTER);
+		//radioButtonPanel.add(jRadioButtonScissors, BorderLayout.CENTER);
+		radioButtonPanel.add(jRadioButtonRock);
+		radioButtonPanel.add(jRadioButtonPaper);
+		radioButtonPanel.add(jRadioButtonScissors);
 		//radioButtonPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		playPanel.add(playButton);

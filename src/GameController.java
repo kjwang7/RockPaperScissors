@@ -7,18 +7,18 @@ import java.util.Random;
 
 public class GameController {
 
-	private GameView theView;
-	private GameModel theModel;
+	private GameView view1;
+	private GameModel model1;
 
-	public GameController(GameView theView, GameModel theModel) {
-		this.theView = theView;
-		this.theModel = theModel;
+	public GameController(GameView view1, GameModel model1) {
+		this.view1 = view1;
+		this.model1 = model1;
 
 		// Tell the View that when ever the calculate button
 		// is clicked to execute the actionPerformed method
 		// in the CalculateListener inner class
 
-		this.theView.addGameListener(new GameListener());
+		this.view1.addGameListener(new GameListener());
 	}
 
 	class GameListener implements ActionListener{
@@ -34,15 +34,15 @@ public class GameController {
 
 			//try{
 
-				userSelection = theView.getUserSelection();
+				userSelection = view1.getUserSelection();
 
 				Random ran = new Random();
 				int computerSelection = ran.nextInt(3)+1;
 				
-				theModel.setGameResult(userSelection, computerSelection);
-				int gameResult = theModel.getGameResult();
+				model1.setGameResult(userSelection, computerSelection);
+				int gameResult = model1.getGameResult();
 
-				theView.showGameResult(userSelection, computerSelection, gameResult);
+				view1.showGameResult(userSelection, computerSelection, gameResult);
 
 			//}
 
@@ -50,7 +50,7 @@ public class GameController {
 
 			//	System.out.println(ex);
 
-			//	theView.displayErrorMessage("You Need to Enter 2 Integers");
+			//	view1.displayErrorMessage("You Need to Enter 2 Integers");
 
 			//}
 

@@ -7,7 +7,7 @@ public class MVCGame {
         
     	GameModel model1 = new GameModel();
         
-        GameController theController = new GameController(view1,model1);
+        GameController controller1 = new GameController(view1,model1);
         
         view1.setVisible(true);
 
