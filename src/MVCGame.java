@@ -1,3 +1,8 @@
+/**
+ * Main class for the Rock Paper Scissors game
+ * @author Kevin
+ *
+ */
 
 public class MVCGame {
 

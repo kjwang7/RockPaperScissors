@@ -1,10 +1,9 @@
 /**
- * View of the Game.
+ * View for the Rock Paper Scissors game
+ * @author Kevin
+ *
  */
 
-//import java.awt.BorderLayout;
-//import java.awt.Component;
-//import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -22,6 +21,9 @@ public class GameView extends JFrame {
 	
 	JButton playButton;
 	
+	/**
+	 * Constructor
+	 */
 	public GameView() {
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(new GridLayout(3, 0));
@@ -39,7 +41,6 @@ public class GameView extends JFrame {
 		
 				
 		selectLabel = new JLabel("Make a selection, then Play!");
-		//selectLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		selectLabelPanel.add(selectLabel, JLabel.CENTER);
 
@@ -58,9 +59,6 @@ public class GameView extends JFrame {
 		jRadioButtonRock.setHorizontalAlignment(SwingConstants.CENTER);
 		jRadioButtonPaper.setHorizontalAlignment(SwingConstants.CENTER);
 		jRadioButtonScissors.setHorizontalAlignment(SwingConstants.CENTER);
-		//jRadioButtonRock.setVerticalAlignment(SwingConstants.CENTER);
-		//jRadioButtonPaper.setVerticalAlignment(SwingConstants.CENTER);
-		//jRadioButtonScissors.setVerticalAlignment(SwingConstants.CENTER);
 		
 		groupUserSelection.add(jRadioButtonRock);
 		groupUserSelection.add(jRadioButtonPaper);
@@ -68,33 +66,28 @@ public class GameView extends JFrame {
 		
 		playButton = new JButton("Play!");
 		
-		//gamePanel.add(selectLabel);
-		//radioButtonPanel.add(jRadioButtonRock, BorderLayout.CENTER);
-		//radioButtonPanel.add(jRadioButtonPaper, BorderLayout.CENTER);
-		//radioButtonPanel.add(jRadioButtonScissors, BorderLayout.CENTER);
 		radioButtonPanel.add(jRadioButtonRock);
 		radioButtonPanel.add(jRadioButtonPaper);
 		radioButtonPanel.add(jRadioButtonScissors);
-		//radioButtonPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		playPanel.add(playButton);
 		
 		gamePanel.add(selectLabelPanel);
-		//gamePanel.add(radioButtonPanel, BorderLayout.CENTER);
 		gamePanel.add(radioButtonPanel);
 		gamePanel.add(playPanel);
-		//gamePanel.add(playButton);
 		
 		this.add(gamePanel);
 
 	}
 	
+	/**
+	 * Get the user selection
+	 * @return an Integer indicating the selection. 1 for Rock. 2 for Paper. 3 for Scissors.
+	 */
 	public int getUserSelection(){
-		//return Integer.parseInt(firstNumber.getText());
 		ButtonModel bM = groupUserSelection.getSelection();
 		if (bM!=null) {
 			String s = bM.getActionCommand();
-			//System.out.println("getActionCommand"+s);
 			if (s.equals("Rock")) {
 				return 1;
 			}
@@ -108,8 +101,13 @@ public class GameView extends JFrame {
 		return 0;
 	}
 
+	/**
+	 * Show the game result.
+	 * @param userSelection user selection
+	 * @param computerSelection computer selection
+	 * @param gameResult game result
+	 */
 	public void showGameResult(int userSelection, int computerSelection, int gameResult) {
-		//System.out.println(gameResult);
 
 		String s = "You chose " + encodedSelection(userSelection) + "\n" + "Computer chose " + encodedSelection(computerSelection) + "\n";
 
@@ -134,12 +132,20 @@ public class GameView extends JFrame {
 
 	}
 	
+	/**Add action listener to the play button
+	 * 
+	 * @param listenForPlayButton
+	 */
 	void addGameListener(ActionListener listenForPlayButton){
-		//System.out.println("Hello");
 		playButton.addActionListener(listenForPlayButton);
 		
 	}
 	
+	/**
+	 * Return the encoded string of user selection. Rock for 1. Paper for 2. Scissors for 3
+	 * @param i user selection
+	 * @return
+	 */
 	private static String encodedSelection(int i) {
 		if (i == 1) {
 			return "Rock";
